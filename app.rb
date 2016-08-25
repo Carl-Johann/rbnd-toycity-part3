@@ -25,7 +25,7 @@ require_relative "lib/transaction"
  puts firehouse.in_stock? # Should return false
 
  products_in_stock = Product.in_stock
- #Should return an array of all products with a stock greater than zero
+# Should return an array of all products with a stock greater than zero
  puts products_in_stock.include?(nanoblock) # Should return true
  puts products_in_stock.include?(firehouse) # Should return false
 
@@ -58,9 +58,17 @@ require_relative "lib/transaction"
 
  puts walter.purchase(nanoblock)
 
-# puts Transaction.all.count # Should return 2
+ puts Transaction.all.count # Should return 2
 
  transaction2 = Transaction.find(2)
  puts transaction2.product == nanoblock # Should return true
- #walter.purchase(firehouse)
+# walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+# Features
+
+# Product.clear_list
+# Transaction.clear_list
+# Customer.clear_list
+
+# Product.find_and_delete_by_title("Nano Block Empire State Building")
