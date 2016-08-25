@@ -14,6 +14,10 @@ class Product
 		@@products
 	end
 
+	def change_stock(transactions)
+		@stock -= transactions
+	end
+
 	def self.in_stock
 		@@products.select! {|product| product.stock >= 1}
 	end

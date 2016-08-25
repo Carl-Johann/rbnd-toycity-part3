@@ -12,6 +12,22 @@ class Customer
 		@@customer_list
 	end
 
+	def purchase(product)
+		if product.stock == 0
+			raise OutOfStockError, "'#{product.title}' is out of stock"
+		else		
+			Transaction.new(self, product)
+		end
+	end	
+
+	def self.find_by_name(name)
+		@@customer_list.each do |customer|
+			if customer.name == name
+				return customer
+			end
+		end
+	end
+
 	private
 
 	def add_to_customer_list
@@ -26,14 +42,6 @@ class Customer
     	if @@customer_list == []
         	@@customer_list << self
     	end
-	end
-
-	def self.find_by_name(name)
-		@@customer_list.each do |customer|
-			if customer.name == name
-				return customer
-			end
-		end
 	end
 end
 
