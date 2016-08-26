@@ -5,7 +5,8 @@ What was the most rewarding challenge you conquered?
   It was the 'self.find_by_title'. i wrote the whole method not really knowing if it was gonna work. It was so rewarding seing everything work when i ran it for the first time.
   
 What two additional features did you build? Why?
-   I built two features: clear_list, and 'find_and_delete_by_title'. I built them because they felt like they would actually be usefull in the real world.
+   I built two features: clear_list, and ‘print_short_product_report’. I built the
+because they felt like they would actually be usefull in the real world.
 
 Where do you still have room to grow?
  I think i can grow alot in, understanding names of all different kinds. instance methods, class variables ...
