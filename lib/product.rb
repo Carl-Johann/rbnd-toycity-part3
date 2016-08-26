@@ -10,6 +10,22 @@ class Product
 		add_to_products
 	end
 
+	def print_short_product_report
+		puts @title
+		puts "Price: $#{@price}"
+		puts "Stock: #{@stock}"
+	end
+
+	def self.report
+  		@@products.each do |product|
+  			puts product.print_short_product_report
+  		end
+  	end
+
+	def self.clear_list
+		@@products.clear
+	end
+
 	def self.all
 		@@products
 	end
@@ -22,20 +38,16 @@ class Product
 		@@products.select! {|product| product.stock >= 1}
 	end
 
+	def self.find_and_delete_by_title(title)
+		@@products.select! {|product| product.title != title}
+	end
+	
 	def in_stock?
-		if @stock == 0
-			return false
-		else
-			return true
-		end
+    	@stock > 0
 	end
 
 	def self.find_by_title(title)
-		@@products.each do |product|
-			if product.title == title
-				return product
-			end
-		end
+		@@products.find {|product| product.title == title}
 	end
 
 	private

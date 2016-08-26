@@ -8,8 +8,8 @@ class Transaction
 		@customer = customer
 		@product = product
 		@id = @@id
-    	product.change_stock(1)
     	add_to_transactions
+    	product.change_stock(1)
     	@@id += 1
 	end
 
@@ -32,11 +32,10 @@ class Transaction
 	private
 
 	def add_to_transactions
-   
     	if product.stock != 0
     		@@transactions << self
     	else
-    		raise "OutOfStockError, "#{@product.title} is out of stock"
+    		raise OutOfStockError, "#{@product.title} is out of stock"
     	end
 	end
 end

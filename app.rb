@@ -66,9 +66,10 @@ require_relative "lib/transaction"
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
 
 # Features
-
-# Product.clear_list
-# Transaction.clear_list
-# Customer.clear_list
-
 # Product.find_and_delete_by_title("Nano Block Empire State Building")
+ puts
+ Product.report
+
+ Product.clear_list
+ Transaction.clear_list
+ Customer.clear_list
