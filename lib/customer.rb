@@ -12,12 +12,8 @@ class Customer
 		@@customer_list
 	end
 
-	def purchase(product)
-		if product.stock == 0
-			raise OutOfStockError, "'#{product.title}' is out of stock"
-		else		
-			Transaction.new(self, product)
-		end
+	def purchase(product)		
+		Transaction.new(self, product)
 	end	
 
 	def self.find_by_name(name)
@@ -29,6 +25,10 @@ class Customer
 	end
 
 	private
+
+	def self.clear_list
+		@@customer_list.clear
+	end
 
 	def add_to_customer_list
     @@customer_list.each do |customer|

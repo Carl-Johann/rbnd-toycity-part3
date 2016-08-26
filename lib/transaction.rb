@@ -1,3 +1,4 @@
+require_relative 'errors'
 class Transaction
 	attr_reader :id, :product, :customer
 	@@id = 1
@@ -7,13 +8,17 @@ class Transaction
 		@customer = customer
 		@product = product
 		@id = @@id
-    	@@id += 1
     	product.change_stock(1)
-    	@@transactions << self
+    	add_to_transactions
+    	@@id += 1
 	end
 
 	def self.find(id)
 		@@transactions[id-1]
+	end
+
+	def self.clear_list
+		@@transactions.clear
 	end
 
 	def id
@@ -22,6 +27,17 @@ class Transaction
 
 	def self.all
 		@@transactions
+	end
+
+	private
+
+	def add_to_transactions
+   
+    	if product.stock != 0
+    		@@transactions << self
+    	else
+    		raise "OutOfStockError, "#{@product.title} is out of stock"
+    	end
 	end
 end
 
