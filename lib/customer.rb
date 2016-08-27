@@ -33,7 +33,7 @@ class Customer
 	def add_to_customer_list
     @@customer_list.each do |customer|
         if customer.name == @name
-            raise DuplicateProductError, "'#{@name}' already exists'"
+            raise DuplicateCustomerError, "'#{@name}' already exists'"
         else
             @@customer_list << self
             break
