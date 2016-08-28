@@ -35,7 +35,7 @@ class Transaction
     	if product.stock != 0
     		@@transactions << self
     	else
-    		raise OutOfStockError, "#{@product.title} is out of stock"
+    		raise OutOfStockError, "'#{@product.title}'' is out of stock"
     	end
 	end
 end
